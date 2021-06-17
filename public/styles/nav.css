@@ -7,19 +7,21 @@ nav {
   justify-content: space-between;
   align-items: center;
   z-index: 1;
-  position: sticky;
+  position: fixed;
 }
 
 .header {
+  padding-top: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 400px;
+  height: 520px;
   width: 100%;
   background-color: #ed9f03;
   background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
    
 }
+
 
 .title {
   font-family: 'Bungee';

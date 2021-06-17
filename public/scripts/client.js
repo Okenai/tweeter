@@ -3,6 +3,11 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 const createTweetElement = (tweetData) => {
   const $tweet = $("<article>").addClass("tweet")
@@ -10,7 +15,7 @@ const createTweetElement = (tweetData) => {
     <div class="name"> <img class="avatars" src="${tweetData.user.avatars}">${tweetData.user.name}</div>
     <div class="handle">${tweetData.user.handle}</div>
   </header>
-  <p class="content">${tweetData.content.text}</p>
+  <p class="content">${escape(tweetData.content.text)}</p>
   <footer>
     <div class="date-stamp">${timeago.format(tweetData.created_at)}</div>
     <div>
@@ -42,22 +47,23 @@ $(document).ready(function () {
     event.preventDefault();
     const chars = $('textarea').val().length;
     if (chars < 5) {
-      alert("Please add some more meaning to your tweet!");
-    }
-    if (chars >= 5 && chars <= 140) {
-      $('button').attr({ disabled: false });
+      $(".message").text("Please add some more meaning to your tweet!");
+      $('.error').removeClass('hidden');
+    } else if (chars > 140) {
+      $(".message").text("Please stay within word limits!");
+      $('.error').removeClass('hidden');
+    } else if (chars >= 5 && chars <= 140) {
+      $('.error').hide();
       $.ajax({
         url: '/tweets',
         data: $(this).serialize(),
         method: "POST"
       })
-        .then(loadTweets);
-        $("input[type=text]").val("");
-        $("textarea").val("");
+        .then(() => {
+          $("textarea").val("");
+          $(".counter").val(140);
+          loadTweets();
+        });
     }
-    if (chars > 140) {
-      alert("Please stay within word limits!");
-    }
-    
   })
 })

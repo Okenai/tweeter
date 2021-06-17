@@ -17,9 +17,104 @@ html {
 body {
   color: #545149;
   background-color: #f4f1ec;
+  font-family: 'Source Sans Pro', 'sans-serif';
   font-size: 24px;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-items: center;
+  background-color: #f4f1ec;
+  margin-right: auto;
+  margin-left: auto;
+  
+}
+
+.tweet-container {
+  margin-top: 2em;
+  width: 100%;
+  
+}
+
+.tweet:hover {
+  box-shadow: 5px 5px lightblue;
+}
+
+article .content {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 3px solid #413413;
+  font-weight: bold;
+  padding: 0.5em;
+}
+
+.tweet-container header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0.5em;
+  align-items: center;
+}
+
+.tweet-container footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1em;
+  font-size: 20px;
+}
+
+footer .fas {
+  color: blue;
+  margin: 0.1em
+}
+footer .fas:hover {
+  color: orange
+}
+
+.tweet-container img {
+  margin-right: 10px;
+}
+
+.tweet-container .name {
+  display: flex;
+  align-items: center;
+}
+
+
+.tweet-container article {
+  border: 3px solid #545149;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+  margin-bottom: 1em;
+ 
+}
+
+.error {
+  border: red 3px solid;
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.message {
+  color: red;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.fa-exclamation-triangle {
+  color: red;
+}
+
+ .hidden {
+  display: none
+}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */

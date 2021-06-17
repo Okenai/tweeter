@@ -19,7 +19,7 @@ const createTweetElement = (tweetData) => {
       <i class="fas fa-heart"></i>
     </div>
   </footer>`
-  const newTweet = $tweet.append(html)
+  const newTweet = $tweet.append(html);
   return newTweet;
 }
 
@@ -31,7 +31,7 @@ const renderTweets = (tweets) => {
   });
 }
 
-const loadTweets  = function () {
+const loadTweets = function () {
   $.get('/tweets').then((tweets) => {
     renderTweets(tweets);
   })
@@ -40,12 +40,24 @@ const loadTweets  = function () {
 $(document).ready(function () {
   $('form').submit(function (event) {
     event.preventDefault();
-    const data = $(this).serialize();
-    $.ajax({
-      url: '/tweets',
-      data: data,
-      method: "POST"
-    })
-      .then(loadTweets )
+    const chars = $('textarea').val().length;
+    if (chars < 5) {
+      alert("Please add some more meaning to your tweet!");
+    }
+    if (chars >= 5 && chars <= 140) {
+      $('button').attr({ disabled: false });
+      $.ajax({
+        url: '/tweets',
+        data: $(this).serialize(),
+        method: "POST"
+      })
+        .then(loadTweets);
+        $("input[type=text]").val("");
+        $("textarea").val("");
+    }
+    if (chars > 140) {
+      alert("Please stay within word limits!");
+    }
+    
   })
 })

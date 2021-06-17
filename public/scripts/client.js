@@ -30,3 +30,11 @@ const renderTweets = (tweets) => {
     tweetsContainer.prepend(newTweet);
   });
 }
+
+$(document).ready(function () {
+  $('form').submit(function (event) {
+    event.preventDefault();
+    const data = $(this).serialize();
+   
+  })
+})

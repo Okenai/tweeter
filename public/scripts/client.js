@@ -31,10 +31,21 @@ const renderTweets = (tweets) => {
   });
 }
 
+const loadTweets  = function () {
+  $.get('/tweets').then((tweets) => {
+    renderTweets(tweets);
+  })
+}
+
 $(document).ready(function () {
   $('form').submit(function (event) {
     event.preventDefault();
     const data = $(this).serialize();
-   
+    $.ajax({
+      url: '/tweets',
+      data: data,
+      method: "POST"
+    })
+      .then(loadTweets )
   })
 })

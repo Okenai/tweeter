@@ -3,11 +3,14 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
+// escape function was added to protect againt site cross scripting
 const escape = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
+
 
 const createTweetElement = (tweetData) => {
   const $tweet = $("<article>").addClass("tweet")

@@ -13,12 +13,68 @@ html {
 /*
  * Global layout stuff
  */
+ nav {
+  height: 120px;
+  width: 100%;
+  color: #ffff;
+  background-color: #ed9f03;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0
+}
 
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 520px;
+  width: 100%;
+  background-color: #ed9f03;
+  background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+  color: #ffff;
+  
+}
+
+.header-logo {
+  margin-top: 120px;
+}
+
+.header-name {
+  font-size: 26px;
+  text-align: center;
+}
+
+.last-name {
+  font-weight: normal;
+  
+}
+
+.title {
+  font-family: 'Bungee';
+  font-size: 40px;
+  margin-left: 40px;
+}
+
+.right-content-text {
+  font-size: 25px;
+  margin-right: 40px;
+}
+
+.right-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav .fas {
+  color: orangered;
+  margin-top: 2px;
+}
 body {
-  color: #545149;
   background-color: #f4f1ec;
   font-family: 'Source Sans Pro', 'sans-serif';
-  font-size: 24px;
 }
 
 .container {
@@ -29,13 +85,57 @@ body {
   background-color: #f4f1ec;
   margin-right: auto;
   margin-left: auto;
-  
+}
+
+textarea {
+  display: flex;
+  border: none;
+  border-bottom: 3px solid #545149;
+  background-color: #f4f1ec;
+  align-items: stretch;
+  height: 1.7em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.new-tweet {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 50px;
+  font-size: 32px;
+}
+
+button {
+  background-color: #4056A1;
+  color: white;
+ 
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Bungee';
+  margin-top: 25px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.exceeded {
+  color: red;
 }
 
 .tweet-container {
-  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  margin-top: 75px;
   width: 100%;
-  
 }
 
 .tweet:hover {
@@ -43,11 +143,18 @@ body {
 }
 
 article .content {
-  display: flex;
-  align-items: flex-start;
+  text-align: left;
   border-bottom: 3px solid #413413;
   font-weight: bold;
-  padding: 0.5em;
+  font-size: 35px;
+  /* word-wrap: break-word; */
+  overflow-wrap: break-word;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.handle {
+  color:lightskyblue
 }
 
 .tweet-container header {
@@ -55,6 +162,7 @@ article .content {
   flex-direction: row;
   justify-content: space-between;
   margin: 0.5em;
+  font-size: 30px;
   align-items: center;
 }
 
@@ -62,8 +170,8 @@ article .content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 1em;
-  font-size: 20px;
+  margin: 10px;
+  font-size: 23px;
 }
 
 footer .fas {
@@ -83,14 +191,12 @@ footer .fas:hover {
   align-items: center;
 }
 
-
 .tweet-container article {
   border: 3px solid #545149;
   display: flex;
   flex-direction: column;
-  padding: 0.5em;
-  margin-bottom: 1em;
- 
+  padding: 20px;
+  margin-bottom: 40px;
 }
 
 .error {
@@ -115,6 +221,56 @@ footer .fas:hover {
  .hidden {
   display: none
 }
+
+/* Desktop Style */
+
+@media only screen and (min-width:1024px) {
+  nav {
+    background-color: #4056A1;
+  }
+  
+.desktop-layout {
+    margin-top: 250px;
+    display: flex;
+    flex-direction: row;
+  }
+
+.header {
+    display: flex;
+    margin-left: 60px;
+    margin-right: 5%;
+    flex: 40%;
+    width: 70%;
+    height: 450px;
+  }
+
+.header-logo {
+   margin-top: 40px;
+  }
+
+.container {
+   display: flex;
+   flex-direction: column;
+   flex: 60%;
+   width: 80%;
+  margin-right: 60px;
+  margin-left: 5%;
+ }
+
+.tweet-container {
+  width: 100%;
+ }
+
+.new-tweet {
+  margin-top: 0px;
+  width: 100%; 
+}
+
+article .content {
+   font-size: 32px;
+ }
+}
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
